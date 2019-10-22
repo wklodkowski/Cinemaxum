@@ -1,6 +1,6 @@
 using System;
 
-namespace Cinemaxum.Movie.Api
+namespace Cinemaxum.Catalog.Api
 {
     public class WeatherForecast
     {

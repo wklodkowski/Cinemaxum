@@ -5,11 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Movie\" />
+    <ProjectReference Include="..\Cinemaxum.Movie.Dal\Cinemaxum.Movie.Dal.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cinemaxum.Movie.Dal\Cinemaxum.Movie.Dal.csproj" />
+    <Folder Include="Movie\V1\Models\" />
+    <Folder Include="Movie\V1\Mappers\" />
   </ItemGroup>
 
 </Project>

@@ -17,15 +17,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{39E382
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Movie", "Movie", "{14DB4293-153C-44AD-B1D3-5CEA432F1FB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemaxum.Movie.Api", "Services\Movie\Cinemaxum.Movie.Api\Cinemaxum.Movie.Api.csproj", "{48D7A0E2-FC26-4088-AA99-32D95FE99A95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinemaxum.Movie.Api", "Services\Movie\Cinemaxum.Movie.Api\Cinemaxum.Movie.Api.csproj", "{48D7A0E2-FC26-4088-AA99-32D95FE99A95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemaxum.Movie.Bll", "Services\Movie\Cinemaxum.Movie.Bll\Cinemaxum.Movie.Bll.csproj", "{1044C09D-0EC5-4694-877D-952DA44F298B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinemaxum.Movie.Bll", "Services\Movie\Cinemaxum.Movie.Bll\Cinemaxum.Movie.Bll.csproj", "{1044C09D-0EC5-4694-877D-952DA44F298B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemaxum.Movie.Dal", "Services\Movie\Cinemaxum.Movie.Dal\Cinemaxum.Movie.Dal.csproj", "{2E2D45D3-0507-486B-BF73-770B831A6323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinemaxum.Movie.Dal", "Services\Movie\Cinemaxum.Movie.Dal\Cinemaxum.Movie.Dal.csproj", "{2E2D45D3-0507-486B-BF73-770B831A6323}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemaxum.ApiGateway.Api", "ApiGateways\Cinemaxum.ApiGateway.Api\Cinemaxum.ApiGateway.Api.csproj", "{F9A20EC3-F260-4C79-8ED0-DE513A25AA47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinemaxum.ApiGateway.Api", "ApiGateways\Cinemaxum.ApiGateway.Api\Cinemaxum.ApiGateway.Api.csproj", "{F9A20EC3-F260-4C79-8ED0-DE513A25AA47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemaxum.ApiGateway.Bll", "ApiGateways\Cinemaxum.ApiGateway.Bll\Cinemaxum.ApiGateway.Bll.csproj", "{59A7D1F0-D898-4A51-A8A8-33AC7BE0D692}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinemaxum.ApiGateway.Bll", "ApiGateways\Cinemaxum.ApiGateway.Bll\Cinemaxum.ApiGateway.Bll.csproj", "{59A7D1F0-D898-4A51-A8A8-33AC7BE0D692}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9530DE1A-7EC7-4263-AE92-9E208C289572}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{6C33B535-6EED-430D-85F5-3D2D16DCEAD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemaxum.Catalog.Api", "Services\Catalog\Cinemaxum.Catalog.Api\Cinemaxum.Catalog.Api.csproj", "{B0A268CA-776E-459E-A2D5-9D723C1DCF4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemaxum.Catalog.Bll", "Services\Catalog\Cinemaxum.Catalog.Bll\Cinemaxum.Catalog.Bll.csproj", "{FC9141E5-B98C-43DE-930C-1D465AB0D60E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemaxum.Catalog.Dal", "Services\Catalog\Cinemaxum.Catalog.Dal\Cinemaxum.Catalog.Dal.csproj", "{74C479F4-D40F-4FA0-81E5-C734476AA174}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +63,22 @@ Global
 		{59A7D1F0-D898-4A51-A8A8-33AC7BE0D692}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59A7D1F0-D898-4A51-A8A8-33AC7BE0D692}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59A7D1F0-D898-4A51-A8A8-33AC7BE0D692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9530DE1A-7EC7-4263-AE92-9E208C289572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9530DE1A-7EC7-4263-AE92-9E208C289572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9530DE1A-7EC7-4263-AE92-9E208C289572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9530DE1A-7EC7-4263-AE92-9E208C289572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0A268CA-776E-459E-A2D5-9D723C1DCF4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0A268CA-776E-459E-A2D5-9D723C1DCF4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0A268CA-776E-459E-A2D5-9D723C1DCF4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0A268CA-776E-459E-A2D5-9D723C1DCF4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC9141E5-B98C-43DE-930C-1D465AB0D60E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC9141E5-B98C-43DE-930C-1D465AB0D60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC9141E5-B98C-43DE-930C-1D465AB0D60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9141E5-B98C-43DE-930C-1D465AB0D60E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C479F4-D40F-4FA0-81E5-C734476AA174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C479F4-D40F-4FA0-81E5-C734476AA174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C479F4-D40F-4FA0-81E5-C734476AA174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C479F4-D40F-4FA0-81E5-C734476AA174}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +90,10 @@ Global
 		{2E2D45D3-0507-486B-BF73-770B831A6323} = {14DB4293-153C-44AD-B1D3-5CEA432F1FB5}
 		{F9A20EC3-F260-4C79-8ED0-DE513A25AA47} = {1DCDD4E9-1F5C-4192-AE3F-9CCBD281BDFE}
 		{59A7D1F0-D898-4A51-A8A8-33AC7BE0D692} = {1DCDD4E9-1F5C-4192-AE3F-9CCBD281BDFE}
+		{6C33B535-6EED-430D-85F5-3D2D16DCEAD1} = {50835DC9-729C-4039-8986-251D6D6C8721}
+		{B0A268CA-776E-459E-A2D5-9D723C1DCF4D} = {6C33B535-6EED-430D-85F5-3D2D16DCEAD1}
+		{FC9141E5-B98C-43DE-930C-1D465AB0D60E} = {6C33B535-6EED-430D-85F5-3D2D16DCEAD1}
+		{74C479F4-D40F-4FA0-81E5-C734476AA174} = {6C33B535-6EED-430D-85F5-3D2D16DCEAD1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {325A4805-49E3-4ED6-9C2C-57B4B9652ED3}

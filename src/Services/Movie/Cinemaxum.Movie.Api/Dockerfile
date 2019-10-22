@@ -5,10 +5,12 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
-COPY ["Cinemaxum.Movie.Api/Cinemaxum.Movie.Api.csproj", "Cinemaxum.Movie.Api/"]
-RUN dotnet restore "Cinemaxum.Movie.Api/Cinemaxum.Movie.Api.csproj"
+COPY ["Services/Movie/Cinemaxum.Movie.Api/Cinemaxum.Movie.Api.csproj", "Services/Movie/Cinemaxum.Movie.Api/"]
+COPY ["Services/Movie/Cinemaxum.Movie.Bll/Cinemaxum.Movie.Bll.csproj", "Services/Movie/Cinemaxum.Movie.Bll/"]
+COPY ["Services/Movie/Cinemaxum.Movie.Dal/Cinemaxum.Movie.Dal.csproj", "Services/Movie/Cinemaxum.Movie.Dal/"]
+RUN dotnet restore "Services/Movie/Cinemaxum.Movie.Api/Cinemaxum.Movie.Api.csproj"
 COPY . .
-WORKDIR "/src/Cinemaxum.Movie.Api"
+WORKDIR "/src/Services/Movie/Cinemaxum.Movie.Api"
 RUN dotnet build "Cinemaxum.Movie.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
