@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Cinemaxum.Movie.Api.Infrastructure.DI;
+using Cinemaxum.Movie.Bll.Infrastructure.DI;
 
 namespace Cinemaxum.Movie.Api
 {
@@ -46,7 +48,7 @@ namespace Cinemaxum.Movie.Api
         // Don't build the container; that gets done for you by the factory.
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            //builder.RegisterModule(new AutofacModule());
+            builder.RegisterModule(new ApiModule());
         }
 
         // Configure is where you add middleware. This is called after

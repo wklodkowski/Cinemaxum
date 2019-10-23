@@ -5,12 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cinemaxum.Movie.Dal\Cinemaxum.Movie.Dal.csproj" />
+    <PackageReference Include="Autofac" Version="4.9.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Movie\V1\Models\" />
-    <Folder Include="Movie\V1\Mappers\" />
+    <ProjectReference Include="..\Cinemaxum.Movie.Dal\Cinemaxum.Movie.Dal.csproj" />
   </ItemGroup>
 
 </Project>
