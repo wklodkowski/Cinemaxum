@@ -13,7 +13,10 @@ using Microsoft.Extensions.Logging;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Cinemaxum.Movie.Api.Infrastructure.DI;
+using Cinemaxum.Movie.Api.Infrastructure.Extensions;
 using Cinemaxum.Movie.Bll.Infrastructure.DI;
+using Swashbuckle.AspNetCore.Swagger;
+using License = System.ComponentModel.License;
 
 namespace Cinemaxum.Movie.Api
 {
@@ -21,7 +24,6 @@ namespace Cinemaxum.Movie.Api
     {
         public Startup(IWebHostEnvironment env)
         {
-            // In ASP.NET Core 3.0 `env` will be an IWebHostingEnvironment, not IHostingEnvironment.
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -32,28 +34,27 @@ namespace Cinemaxum.Movie.Api
 
         public IConfigurationRoot Configuration { get; }
 
-        // ConfigureServices is where you register dependencies. This gets
-        // called by the runtime before the ConfigureContainer method, below.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add services to the collection. Don't build or return
-            // any IServiceProvider or the ConfigureContainer method
-            // won't get called.
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                        .SetIsOriginAllowed((host) => true)
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials());
+            });
+            services.AddMvcCore().AddApiExplorer();
             services.AddOptions();
+            services.AddSwagger();
         }
 
-        // ConfigureContainer is where you can register things directly
-        // with Autofac. This runs after ConfigureServices so the things
-        // here will override registrations made in ConfigureServices.
-        // Don't build the container; that gets done for you by the factory.
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new ApiModule());
         }
 
-        // Configure is where you add middleware. This is called after
-        // ConfigureContainer. You can use IApplicationBuilder.ApplicationServices
-        // here if you need to resolve things from the container.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -62,8 +63,18 @@ namespace Cinemaxum.Movie.Api
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+            app.UseCors("CorsPolicy");
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Movie.Api V1");
+                
+            });
         }
     }
 }

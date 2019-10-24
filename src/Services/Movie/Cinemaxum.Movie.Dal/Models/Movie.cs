@@ -19,5 +19,6 @@ namespace Cinemaxum.Movie.Dal.Models
 
         public ICollection<MovieGenre> MovieGenres { get; set; }
         public ICollection<MoviePerson> MoviePersons { get; set; }
+        public ICollection<Rating> Ratings { get; set; }
     }
 }
