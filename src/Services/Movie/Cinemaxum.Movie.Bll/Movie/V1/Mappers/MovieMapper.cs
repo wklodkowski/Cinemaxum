@@ -33,6 +33,11 @@ namespace Cinemaxum.Movie.Bll.Movie.V1.Mappers
                 result.Genres = movie.MovieGenres.Select(x => ToGenreModel(x.Genre)).ToList();
             }
 
+            if (!movie.MoviePersons.IsNullOrEmpty())
+            {
+                result.Persons = movie.MoviePersons.Select(x => ToPersonModel(x.Person)).ToList();
+            }
+
             return result;
         }
 
@@ -51,7 +56,10 @@ namespace Cinemaxum.Movie.Bll.Movie.V1.Mappers
         {
             var result = new PersonModel
             {
-
+                PersonId = person.PersonId,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Role = person.Role
             };
 
             return result;

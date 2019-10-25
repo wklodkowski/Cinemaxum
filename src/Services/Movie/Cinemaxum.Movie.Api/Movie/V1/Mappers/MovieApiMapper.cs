@@ -24,7 +24,8 @@ namespace Cinemaxum.Movie.Api.Movie.V1.Mappers
                 ProductionYear = movieModel.ProductionYear,
                 PictureFileName = movieModel.PictureFileName,
                 PictureUri = movieModel.PictureUri,
-                Genres = movieModel.Genres.Select(ToGenreViewModel).ToList()
+                Genres = movieModel.Genres.Select(ToGenreViewModel).ToList(),
+                Persons = movieModel.Persons.Select(ToPersonViewModel).ToList()
             };
 
             return result;
@@ -36,6 +37,19 @@ namespace Cinemaxum.Movie.Api.Movie.V1.Mappers
             {
                 GenreId = genreModel.GenreId,
                 Title = genreModel.Title
+            };
+
+            return result;
+        }
+
+        public PersonViewModel ToPersonViewModel(PersonModel personModel)
+        {
+            var result = new PersonViewModel 
+            {
+                PersonId = personModel.PersonId,
+                FirstName = personModel.FirstName,
+                LastName = personModel.LastName,
+                Role = personModel.Role
             };
 
             return result;

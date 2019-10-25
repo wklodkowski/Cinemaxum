@@ -11,5 +11,6 @@ namespace Cinemaxum.Movie.Api.Movie.V1.Mappers.Interfaces
     {
         MovieItemViewModel ToMovieItemResponse(MovieModel movieModel);
         GenreViewModel ToGenreViewModel(GenreModel genreModel);
+        PersonViewModel ToPersonViewModel(PersonModel personModel);
     }
 }

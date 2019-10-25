@@ -48,6 +48,9 @@ namespace Cinemaxum.Movie.Bll.Movie.V1.Services
                 .ThenInclude(x => x.Person)
                 .Include(x => x.Ratings)
                 .SingleOrDefaultAsync();
+
+            if (resultQuery == null)
+                throw new InvalidOperationException();
             
             var resultModel = _movieMapper.ToMovieModel(resultQuery);
 

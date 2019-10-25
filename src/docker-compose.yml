@@ -2,13 +2,13 @@ version: '3.4'
 
 services:
   cinemaxum.movie.api:
-    image: ${DOCKER_REGISTRY-}cinemaxummovieapi
+    image: ${DOCKER_REGISTRY-}cinemaxum.movie.api
     build:
       context: .
       dockerfile: Services/Movie/Cinemaxum.Movie.Api/Dockerfile
 
   cinemaxum.catalog.api:
-    image: ${DOCKER_REGISTRY-}cinemaxumcatalogapi
+    image: ${DOCKER_REGISTRY-}cinemaxum.catalog.api
     build:
       context: .
       dockerfile: Services/Catalog/Cinemaxum.Catalog.Api/Dockerfile
