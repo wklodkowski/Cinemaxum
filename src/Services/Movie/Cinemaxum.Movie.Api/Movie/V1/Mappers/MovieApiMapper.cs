@@ -14,7 +14,28 @@ namespace Cinemaxum.Movie.Api.Movie.V1.Mappers
         {
             var result = new MovieItemViewModel
             {
+                MovieId = movieModel.MovieId,
+                Title = movieModel.Title,
+                Premiere = movieModel.Premiere.ToShortDateString(),
+                Description = movieModel.Description,
+                AgeLimit = movieModel.AgeLimit,
+                DurationTime = movieModel.DurationTime,
+                ProductionPlace = movieModel.ProductionPlace,
+                ProductionYear = movieModel.ProductionYear,
+                PictureFileName = movieModel.PictureFileName,
+                PictureUri = movieModel.PictureUri,
+                Genres = movieModel.Genres.Select(ToGenreViewModel).ToList()
+            };
 
+            return result;
+        }
+
+        public GenreViewModel ToGenreViewModel(GenreModel genreModel)
+        {
+            var result = new GenreViewModel
+            {
+                GenreId = genreModel.GenreId,
+                Title = genreModel.Title
             };
 
             return result;

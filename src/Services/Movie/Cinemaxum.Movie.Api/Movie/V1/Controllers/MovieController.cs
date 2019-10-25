@@ -24,11 +24,11 @@ namespace Cinemaxum.Movie.Api.Movie.V1.Controllers
             _movieApiMapper = movieApiMapper;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{movieId}")]
         [ProducesResponseType(typeof(MovieItemViewModel), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<MovieItemViewModel>> GetMovieAsync(int movieId)
+        public async Task<ActionResult<MovieItemViewModel>> GetMovieAsync(string movieId)
         {
-            var movieModel = await _movieService.GetMovieByIdAsync(movieId);
+            var movieModel = await _movieService.GetMovieByIdAsync(int.Parse(movieId));
             var response = _movieApiMapper.ToMovieItemResponse(movieModel);
 
             return Ok(response);

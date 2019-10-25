@@ -25,24 +25,33 @@ namespace Cinemaxum.Movie.Bll.Movie.V1.Services
 
         public async Task<MovieModel> GetMovieByIdAsync(int movieId)
         {
-            //var result = _movieDbContext.Movies.Where(m => m.MovieId == movieId).Select(m => _movieMapper.ToMovieModel(m));
+            //Version 1
 
-            //var result = from m in _movieDbContext.Movies
-            //    select new MovieModel
-            //    {
-            //        Genres = (from mg in _movieDbContext.MovieGenres join g in _movieDbContext.Genres on mg.GenreId equals g.GenreId where mg.MovieId == m.MovieId select new GenreModel()).ToList()
-            //    };
+            //var resultQuery = await _movieDbContext.Movies
+            //    .Join(_movieDbContext.MovieGenres, movie => movie.MovieId, movieGenre => movieGenre.MovieId, (movie, movieGenre) => new { movie, movieGenre })
+            //    .Where(movie => movie.movie.MovieId == movieId)
+            //    .Join(_movieDbContext.Genres, movieMovieGenre => movieMovieGenre.movieGenre.GenreId, genre => genre.GenreId, (movieMovieGenre, genre) => new { movieMovieGenre.movie, genre })
+            //    .Select(x => new { Movies = x.movie, Genres = x.genre }).ToListAsync();
+
+            //var singleMovie = resultQuery.Select(m => _movieMapper.ToMovieModel(m.Movies)).First();
+            //singleMovie.Genres = resultQuery.Select(m => _movieMapper.ToGenreModel(m.Genres)).ToList();
+
+            //return singleMovie;
+
+            //Version 2
 
             var resultQuery = await _movieDbContext.Movies
-                .Join(_movieDbContext.MovieGenres, movie => movie.MovieId, movieGenre => movieGenre.MovieId, (movie, movieGenre) => new {movie, movieGenre})
-                .Where(movie => movie.movie.MovieId == movieId)
-                .Join(_movieDbContext.Genres, movieMovieGenre => movieMovieGenre.movieGenre.GenreId, genre => genre.GenreId, (movieMovieGenre, genre) => new { movieMovieGenre.movie, genre})
-                .Select(x => new { Movies = x.movie, Genres = x.genre}).ToListAsync();
+                .Where(m => m.MovieId == movieId)
+                .Include(mg => mg.MovieGenres)
+                .ThenInclude(g => g.Genre)
+                .Include(x => x.MoviePersons)
+                .ThenInclude(x => x.Person)
+                .Include(x => x.Ratings)
+                .SingleOrDefaultAsync();
+            
+            var resultModel = _movieMapper.ToMovieModel(resultQuery);
 
-            var singleMovie = resultQuery.Select(m => _movieMapper.ToMovieModel(m.Movies)).First();
-            singleMovie.Genres = resultQuery.Select(m => _movieMapper.ToGenreModel(m.Genres)).ToList();
-
-            return singleMovie;
+            return resultModel;
         }
     }
 }

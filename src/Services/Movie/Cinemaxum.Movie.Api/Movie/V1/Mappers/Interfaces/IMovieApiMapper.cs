@@ -10,5 +10,6 @@ namespace Cinemaxum.Movie.Api.Movie.V1.Mappers.Interfaces
     public interface IMovieApiMapper
     {
         MovieItemViewModel ToMovieItemResponse(MovieModel movieModel);
+        GenreViewModel ToGenreViewModel(GenreModel genreModel);
     }
 }

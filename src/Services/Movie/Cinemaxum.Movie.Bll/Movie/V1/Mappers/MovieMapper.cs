@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using Cinemaxum.Movie.Bll.Common.Extensions;
 using Cinemaxum.Movie.Bll.Movie.V1.Mappers.Interfaces;
 using Cinemaxum.Movie.Bll.Movie.V1.Models;
 using Cinemaxum.Movie.Dal.Models;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Cinemaxum.Movie.Bll.Movie.V1.Mappers
 {
@@ -25,6 +28,11 @@ namespace Cinemaxum.Movie.Bll.Movie.V1.Mappers
                 PictureUri = movie.PictureUri
             };
 
+            if (!movie.MovieGenres.IsNullOrEmpty())
+            {
+                result.Genres = movie.MovieGenres.Select(x => ToGenreModel(x.Genre)).ToList();
+            }
+
             return result;
         }
 
@@ -41,7 +49,12 @@ namespace Cinemaxum.Movie.Bll.Movie.V1.Mappers
 
         public PersonModel ToPersonModel(Person person)
         {
-            throw new NotImplementedException();
+            var result = new PersonModel
+            {
+
+            };
+
+            return result;
         }
 
         public RatingModel ToRatingModel(Rating rating)

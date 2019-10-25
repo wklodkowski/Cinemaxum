@@ -8,7 +8,7 @@ namespace Cinemaxum.Movie.Bll.Movie.V1.Models
     {
         public int MovieId { get; set; }
         public string Title { get; set; }
-        public string Premiere { get; set; }
+        public DateTime Premiere { get; set; }
         public string Description { get; set; }
         public int AgeLimit { get; set; }
         public int DurationTime { get; set; }

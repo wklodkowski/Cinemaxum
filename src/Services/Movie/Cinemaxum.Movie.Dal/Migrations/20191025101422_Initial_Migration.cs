@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Cinemaxum.Movie.Dal.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class Initial_Migration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,7 +27,7 @@ namespace Cinemaxum.Movie.Dal.Migrations
                     MovieId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(nullable: true),
-                    Premiere = table.Column<string>(nullable: true),
+                    Premiere = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     AgeLimit = table.Column<int>(nullable: false),
                     DurationTime = table.Column<int>(nullable: false),
