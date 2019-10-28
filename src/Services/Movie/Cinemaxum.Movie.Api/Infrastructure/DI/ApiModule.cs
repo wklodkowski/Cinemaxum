@@ -10,9 +10,11 @@ namespace Cinemaxum.Movie.Api.Infrastructure.DI
 {
     public class ApiModule : Module
     {
+        public string ConnectionString { get; set; }
+
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterModule(new BusinessLogicModule());
+            builder.RegisterModule(new BusinessLogicModule{ConnectionString = ConnectionString});
             builder.AddApiMovie();
         }
     }

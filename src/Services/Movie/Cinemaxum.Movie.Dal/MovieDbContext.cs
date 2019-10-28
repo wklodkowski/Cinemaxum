@@ -8,9 +8,9 @@ namespace Cinemaxum.Movie.Dal
 {
     public class MovieDbContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public MovieDbContext(DbContextOptions options) : base(options)
         {
-            optionsBuilder.UseSqlServer("");
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

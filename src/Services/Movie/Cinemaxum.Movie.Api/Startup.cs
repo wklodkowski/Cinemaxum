@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -52,7 +53,7 @@ namespace Cinemaxum.Movie.Api
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            builder.RegisterModule(new ApiModule());
+            builder.RegisterModule(new ApiModule {ConnectionString = Configuration.GetConnectionString("CinemaxumMovieConnectionString")});
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -9,9 +9,10 @@ namespace Cinemaxum.Movie.Bll.Infrastructure.DI
 {
     public class BusinessLogicModule : Module
     {
+        public string ConnectionString { get; set; }
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterModule(new DataAccessModule());
+            builder.RegisterModule(new DataAccessModule{ConnectionString = ConnectionString});
             builder.AddMovie();
         }
     }
