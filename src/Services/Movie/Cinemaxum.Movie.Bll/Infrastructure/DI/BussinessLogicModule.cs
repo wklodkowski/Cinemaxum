@@ -7,7 +7,7 @@ using Cinemaxum.Movie.Dal.Infrastructure.DI;
 
 namespace Cinemaxum.Movie.Bll.Infrastructure.DI
 {
-    public class BusinessLogicModule : Module
+    public class BussinessLogicModule : Module
     {
         public string ConnectionString { get; set; }
         protected override void Load(ContainerBuilder builder)

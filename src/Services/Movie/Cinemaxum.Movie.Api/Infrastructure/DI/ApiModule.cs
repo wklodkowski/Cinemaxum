@@ -14,7 +14,7 @@ namespace Cinemaxum.Movie.Api.Infrastructure.DI
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterModule(new BusinessLogicModule{ConnectionString = ConnectionString});
+            builder.RegisterModule(new BussinessLogicModule{ConnectionString = ConnectionString});
             builder.AddApiMovie();
         }
     }
