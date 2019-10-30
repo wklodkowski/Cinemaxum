@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Cinemaxum.ApiGateway.Api.Infrastructure.Config;
+using Cinemaxum.ApiGateway.Bll.Infrastructure.Consts;
 using Cinemaxum.ApiGateway.Bll.Movie.V1.Services;
 using Cinemaxum.ApiGateway.Bll.Movie.V1.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,14 +16,25 @@ namespace Cinemaxum.ApiGateway.Api.Infrastructure.Extensions
 {
     public static class StartupExtension
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services, ServiceUrlsConfig urlsConfig)
         {
-            services.AddHttpClient<IMovieApiClientService, MovieApiClientService>()
-                .AddPolicyHandler(GetRetryPolicy())
-                .AddPolicyHandler(GetCircuitBreakerPolicy());
-
             services.AddHttpClient();
 
+            services.AddHttpClient(ApiClientNameConst.MovieApiClientName, c =>
+            {
+                c.BaseAddress = new Uri(urlsConfig.MovieBaseUrl);
+                c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
+                c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
+            }).AddPolicyHandler(GetRetryPolicy())
+                .AddPolicyHandler(GetCircuitBreakerPolicy());
+
+            services.AddHttpClient(ApiClientNameConst.CatalogApiClientName, c =>
+                {
+                    c.BaseAddress = new Uri(urlsConfig.CatalogBaseUrl);
+                    c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
+                    c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
+                }).AddPolicyHandler(GetRetryPolicy())
+                .AddPolicyHandler(GetCircuitBreakerPolicy());
 
             return services;
         }

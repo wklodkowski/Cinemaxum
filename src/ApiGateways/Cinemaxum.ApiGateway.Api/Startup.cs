@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using Cinemaxum.ApiGateway.Api.Infrastructure.Config;
 using Cinemaxum.ApiGateway.Api.Infrastructure.Extensions;
 using Cinemaxum.ApiGateway.Bll.Infrastructure.DI;
 using Microsoft.AspNetCore.Builder;
@@ -43,6 +44,10 @@ namespace Cinemaxum.ApiGateway.Api
             });
             services.AddMvcCore().AddApiExplorer();
             services.AddOptions();
+            services.Configure<ServiceUrlsConfig>(Configuration.GetSection("ServiceEnvironments"));
+            var serviceUrlOptions = new ServiceUrlsConfig();
+            Configuration.GetSection("ServiceEnvironments").Bind(serviceUrlOptions);
+            services.AddApplicationServices(serviceUrlOptions);
             services.AddSwagger();
         }
 
