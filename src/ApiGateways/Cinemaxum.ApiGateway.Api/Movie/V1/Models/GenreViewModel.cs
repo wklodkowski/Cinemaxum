@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace Cinemaxum.ApiGateway.Api.Movie.V1.Models
 {
-    public class MovieSettings
+    public class GenreViewModel
     {
-        public string MovieUri { get; set; }
+        public int GenreId { get; set; }
+        public string Title { get; set; }
     }
 }

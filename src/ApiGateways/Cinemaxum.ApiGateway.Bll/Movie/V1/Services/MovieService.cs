@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
+using Cinemaxum.ApiGateway.Bll.Movie.V1.Models;
 
 namespace Cinemaxum.ApiGateway.Bll.Movie.V1.Services
 {
@@ -15,9 +17,10 @@ namespace Cinemaxum.ApiGateway.Bll.Movie.V1.Services
             _movieApiClientService = movieApiClientService;
         }
 
-        public void GetMovieAsync(int movieId)
+        public async Task<MovieModel> GetMovieAsync(int movieId)
         {
-
+           var movieModel = await _movieApiClientService.GetMovieByIdAsync(movieId);
+           return movieModel;
         }
     }
 }

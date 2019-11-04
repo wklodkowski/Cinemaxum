@@ -24,8 +24,4 @@
     <ProjectReference Include="..\Cinemaxum.ApiGateway.Bll\Cinemaxum.ApiGateway.Bll.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Movie\V1\Mappers\Interfaces\" />
-  </ItemGroup>
-
 </Project>

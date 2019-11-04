@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Cinemaxum.ApiGateway.Bll.Movie.V1.Models
+namespace Cinemaxum.ApiGateway.Api.Movie.V1.Models
 {
-    public class MovieModel
+    public class MovieViewModel
     {
         public int MovieId { get; set; }
         public string Title { get; set; }
@@ -16,8 +17,8 @@ namespace Cinemaxum.ApiGateway.Bll.Movie.V1.Models
         public int ProductionYear { get; set; }
         public string PictureFileName { get; set; }
         public string PictureUri { get; set; }
-        public List<GenreModel> Genres { get; set; }
-        public List<PersonModel> Persons { get; set; }
-        public RatingModel Rating { get; set; }
+        public List<GenreViewModel> Genres { get; set; }
+        public List<PersonViewModel> Persons { get; set; }
+        public RatingViewModel Rating { get; set; }
     }
 }

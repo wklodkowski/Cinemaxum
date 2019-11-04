@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Autofac;
-using Cinemaxum.ApiGateway.Api.Infrastructure.Config;
+using Cinemaxum.ApiGateway.Bll.Infrastructure.Config;
 using Cinemaxum.ApiGateway.Bll.Infrastructure.DI;
 using Cinemaxum.ApiGateway.Bll.Movie.V1.Services;
 using Cinemaxum.ApiGateway.Bll.Movie.V1.Services.Interfaces;
