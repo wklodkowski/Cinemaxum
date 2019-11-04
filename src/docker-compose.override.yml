@@ -1,6 +1,20 @@
 version: '3.4'
 
 services:
+  cinemaxum.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=44325
+    ports:
+      - "50681:80"
+      - "44325:443"
+    depends_on:
+      - cinemaxum.movie.api
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
   cinemaxum.movie.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development

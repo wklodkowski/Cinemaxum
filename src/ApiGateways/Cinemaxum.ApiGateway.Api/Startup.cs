@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Autofac;
+using Cinemaxum.ApiGateway.Api.Movie.V1.Extensions;
 using Cinemaxum.ApiGateway.Bll.Infrastructure.Config;
 using Cinemaxum.ApiGateway.Bll.Infrastructure.DI;
 using Cinemaxum.ApiGateway.Bll.Movie.V1.Services;
@@ -57,6 +58,7 @@ namespace Cinemaxum.ApiGateway.Api
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new BussinessLogicModule());
+            builder.AddApiMovie();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

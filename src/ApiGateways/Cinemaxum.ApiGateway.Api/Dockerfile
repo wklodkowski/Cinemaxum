@@ -5,10 +5,11 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
-COPY ["Cinemaxum.ApiGateway.Api/Cinemaxum.ApiGateway.Api.csproj", "Cinemaxum.ApiGateway.Api/"]
-RUN dotnet restore "Cinemaxum.ApiGateway.Api/Cinemaxum.ApiGateway.Api.csproj"
+COPY ["ApiGateways/Cinemaxum.ApiGateway.Api/Cinemaxum.ApiGateway.Api.csproj", "ApiGateways/Cinemaxum.ApiGateway.Api/"]
+COPY ["ApiGateways/Cinemaxum.ApiGateway.Bll/Cinemaxum.ApiGateway.Bll.csproj", "ApiGateways/Cinemaxum.ApiGateway.Bll/"]
+RUN dotnet restore "ApiGateways/Cinemaxum.ApiGateway.Api/Cinemaxum.ApiGateway.Api.csproj"
 COPY . .
-WORKDIR "/src/Cinemaxum.ApiGateway.Api"
+WORKDIR "/src/ApiGateways/Cinemaxum.ApiGateway.Api"
 RUN dotnet build "Cinemaxum.ApiGateway.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish

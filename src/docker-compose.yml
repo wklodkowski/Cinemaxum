@@ -1,6 +1,15 @@
 version: '3.4'
 
 services:
+  cinemaxum.api:
+    image: ${DOCKER_REGISTRY-}cinemaxum.api
+    build:
+      context: .
+      dockerfile: ApiGateways/Cinemaxum.ApiGateway.Api/Dockerfile
+    depends_on:
+      - cinemaxum.catalog.api
+      - cinemaxum.movie.api
+
   cinemaxum.movie.api:
     image: ${DOCKER_REGISTRY-}cinemaxum.movie.api
     build:

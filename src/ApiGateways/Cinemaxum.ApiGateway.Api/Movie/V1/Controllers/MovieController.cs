@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cinemaxum.ApiGateway.Api.Movie.V1.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class MovieController : ControllerBase
     {

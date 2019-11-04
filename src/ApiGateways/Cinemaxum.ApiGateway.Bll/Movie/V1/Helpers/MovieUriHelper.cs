@@ -6,7 +6,7 @@ namespace Cinemaxum.ApiGateway.Bll.Movie.V1.Helpers
 {
     public class MovieUriHelper : IMovieUriHelper
     {
-        private const string GetMovieByIdSuffix = "/api/v1/movie";
+        private const string GetMovieByIdSuffix = "/api/v1/Movie";
         private readonly string _movieEnvironment;
 
         public MovieUriHelper(IOptions<ServiceUrlsConfig> urlsConfig)
